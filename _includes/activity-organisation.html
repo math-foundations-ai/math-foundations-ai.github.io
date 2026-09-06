@@ -1,0 +1,10 @@
+{% if page.activity_leads %}
+  <div class="activity-organisation" aria-label="{{ page.title }} organisation">
+    <dl>
+      <div>
+        <dt>Leads</dt>
+        <dd>{% for person in page.activity_leads %}<a href="{{ '/team/' | relative_url }}#{{ person | slugify }}">{{ person }}</a>{% unless forloop.last %}, {% endunless %}{% endfor %}</dd>
+      </div>
+    </dl>
+  </div>
+{% endif %}

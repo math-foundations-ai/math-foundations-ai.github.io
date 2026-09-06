@@ -1,0 +1,40 @@
+---
+layout: default
+---
+
+<article class="edition-page">
+  <header class="edition-hero shell">
+    <a class="back-link" href="{{ page.collection | prepend: '/' | append: '/' | relative_url }}">← All {{ page.collection }}</a>
+    <div class="edition-hero-grid">
+      <div class="edition-heading">
+        <p class="edition-type">{{ page.activity_type }} / {{ page.year }}</p>
+        <h1>{{ page.title }}</h1>
+      </div>
+      <div class="edition-summary-panel">
+        <p class="edition-deck">{{ page.lede }}</p>
+        <div class="edition-facts" aria-label="Event details">
+          <div><span>Date</span><strong>{{ page.date_display }}</strong></div>
+          <div><span>Place</span><strong>{% if page.location_url %}<a href="{{ page.location_url }}" target="_blank" rel="noopener noreferrer">{{ page.location_display }}</a>{% else %}{{ page.location_display }}{% endif %}</strong></div>
+          <div><span>Status</span><strong>{{ page.status | capitalize }}</strong></div>
+          {% if page.registration_status %}<div><span>Applications</span><strong>{{ page.registration_status }}</strong></div>{% endif %}
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <nav class="edition-contents shell" aria-label="On this page">
+    <span>On this page</span>
+    {% for section in page.sections %}
+      <a href="#{{ section.id }}">{{ section.label }}</a>
+    {% endfor %}
+    {% if page.source_url %}
+      <a class="source-link" href="{{ page.source_url }}" target="_blank" rel="noopener noreferrer">Source listing ↗</a>
+    {% endif %}
+  </nav>
+
+  <div class="edition-body shell">
+    <div class="article-prose prose">
+      {{ content }}
+    </div>
+  </div>
+</article>

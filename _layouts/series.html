@@ -1,0 +1,57 @@
+---
+layout: default
+---
+
+{% assign editions = site[page.collection] | sort: "start_date" | reverse %}
+{% assign upcoming_editions = editions | where: "status", "upcoming" %}
+{% assign past_editions = editions | where: "status", "past" %}
+
+<header class="page-lead shell">
+  <div class="page-lead-grid">
+    <h1>{{ page.title }}</h1>
+    <div class="page-intro">{{ page.intro | markdownify }}</div>
+  </div>
+  {% include activity-organisation.html %}
+</header>
+
+<section class="series-section shell" aria-labelledby="upcoming-heading">
+  <div class="series-label">
+    <h2 id="upcoming-heading">Upcoming</h2>
+  </div>
+
+  {% if upcoming_editions.size > 0 %}
+    <div class="series-list">
+      {% for edition in upcoming_editions %}
+        {% include edition-row.html edition=edition %}
+      {% endfor %}
+    </div>
+  {% else %}
+    <div class="quiet-state">
+      <p>No upcoming {{ page.singular | downcase }} is listed.</p>
+    </div>
+  {% endif %}
+</section>
+
+<section class="series-section shell" aria-labelledby="editions-heading">
+  <div class="series-label">
+    <h2 id="editions-heading">Editions</h2>
+  </div>
+
+  {% if past_editions.size > 0 %}
+    <div class="series-list">
+      {% for edition in past_editions %}
+        {% include edition-row.html edition=edition %}
+      {% endfor %}
+    </div>
+  {% else %}
+    <div class="quiet-state quiet-state--plain">
+      <p>No editions have been archived yet.</p>
+    </div>
+  {% endif %}
+</section>
+
+{% if page.afterword %}
+  <section class="series-note shell prose article-prose">
+    {{ page.afterword | markdownify }}
+  </section>
+{% endif %}

@@ -1,0 +1,46 @@
+title: Mathematical Foundations of AI
+short_title: MFAI
+description: >-
+  Mathematical Foundations of AI is a research theme within the Chalmers
+  Artificial Intelligence Research Centre (CHAIR).
+url: "https://math-foundations-ai.github.io"
+baseurl: ""
+lang: en
+timezone: Europe/Stockholm
+
+markdown: kramdown
+permalink: pretty
+
+collections:
+  workshops:
+    output: true
+    permalink: /workshops/:name/
+  seminars:
+    output: false
+  retreats:
+    output: true
+    permalink: /retreats/:name/
+
+defaults:
+  - scope:
+      path: ""
+      type: workshops
+    values:
+      layout: edition
+      activity_type: Workshop
+      nav_key: workshops
+  - scope:
+      path: ""
+      type: retreats
+    values:
+      layout: edition
+      activity_type: Retreat
+      nav_key: retreats
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - vendor
+
+og_image: /assets/images/og.png

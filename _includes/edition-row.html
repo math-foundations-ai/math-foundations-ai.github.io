@@ -1,0 +1,10 @@
+<a class="edition-row" href="{{ include.edition.url | relative_url }}">
+  <span class="edition-year">{{ include.edition.year }}</span>
+  <span class="edition-main">
+    <strong>{{ include.edition.title }}</strong>
+    <small>{{ include.edition.location_display }}{% if include.edition.date_display %} · {{ include.edition.date_display }}{% endif %}</small>
+  </span>
+  <span class="edition-summary">{{ include.edition.lede }}</span>
+  <span class="edition-arrow" aria-hidden="true">↗</span>
+</a>
+

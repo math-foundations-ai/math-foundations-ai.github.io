@@ -1,0 +1,15 @@
+- label: Home
+  url: /
+  key: home
+- label: Workshops
+  url: /workshops/
+  key: workshops
+- label: Seminars
+  url: /seminars/
+  key: seminars
+- label: Retreats
+  url: /retreats/
+  key: retreats
+- label: Team
+  url: /team/
+  key: team

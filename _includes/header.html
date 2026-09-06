@@ -1,0 +1,15 @@
+<header class="site-header" data-site-header>
+  <a class="brand" href="{{ '/' | relative_url }}" aria-label="Mathematical Foundations of AI, home">
+    <span class="brand-name">Mathematical Foundations<br />of AI</span>
+  </a>
+
+  <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-navigation">
+    <span>Menu</span>
+  </button>
+
+  <nav class="site-nav" id="site-navigation" aria-label="Main navigation">
+    {% for item in site.data.navigation %}
+      <a href="{{ item.url | relative_url }}"{% if page.nav_key == item.key %} aria-current="page"{% endif %}>{{ item.label }}</a>
+    {% endfor %}
+  </nav>
+</header>
