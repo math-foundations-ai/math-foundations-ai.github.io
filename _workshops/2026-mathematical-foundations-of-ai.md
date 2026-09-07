@@ -10,7 +10,7 @@ location_display: Palmstedtsalen, Chalmers, Gothenburg
 location_url: https://maps.app.goo.gl/VxRyYJah71bzk3sB7
 registration_status: Closed
 status: past
-lede: A three-day workshop on mathematical aspects of AI and machine learning.
+lede: A three-day workshop on mathematical theories of AI and machine learning.
 source_url: https://sites.google.com/view/chair-math-of-ai/mathematical-foundations-of-ai-main-page
 sections:
   - id: overview
@@ -29,7 +29,7 @@ sections:
 
 <h2 id="overview">Overview</h2>
 
-The workshop took place in Palmstedtsalen at Chalmers from 8 to 10 June 2026. It considered whether AI can develop as a science with common theoretical foundations, rather than only as an engineering field.
+The workshop took place in Palmstedtsalen at Chalmers from 8 to 10 June 2026, and discussed how we can develop AI as a science with common theoretical foundations rather than only as an engineering field.
 
 <figure class="content-figure workshop-painting">
   <img src="{{ '/assets/images/workshops/2026/nordic-summer-evening.jpg' | relative_url }}" alt="Two people standing at a balustrade overlooking a Nordic landscape at dusk" width="2048" height="697" loading="lazy" decoding="async" />
