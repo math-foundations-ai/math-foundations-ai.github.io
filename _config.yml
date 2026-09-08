@@ -15,8 +15,6 @@ collections:
   workshops:
     output: true
     permalink: /workshops/:name/
-  seminars:
-    output: false
   retreats:
     output: true
     permalink: /retreats/:name/

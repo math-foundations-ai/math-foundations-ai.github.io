@@ -7,7 +7,6 @@ description: Mathematical Foundations of AI is a research theme within the Chalm
 {% assign past_workshops = site.workshops | where: "status", "past" %}
 {% assign past_retreats = site.retreats | where: "status", "past" %}
 {% assign recent_features = past_workshops | concat: past_retreats | sort: "start_date" | reverse %}
-{% assign recent_seminars = site.seminars | where: "status", "past" | sort: "date" | reverse %}
 
 <section class="hero shell">
   <div class="hero-grid">
@@ -63,22 +62,11 @@ description: Mathematical Foundations of AI is a research theme within the Chalm
         <h3 class="event-meta" id="recent-seminars-heading">Seminar</h3>
       </header>
 
-      <ol class="seminar-news-list">
-        {% for seminar in recent_seminars limit: 4 %}
-          {% capture seminar_href %}/seminars/#seminar-{{ seminar.slug }}{% endcapture %}
-          <li class="seminar-news-item">
-            <a href="{{ seminar_href | relative_url }}">
-              <time datetime="{{ seminar.date | date: '%Y-%m-%d' }}">{{ seminar.date | date: "%-d %B %Y" }}</time>
-              <span class="seminar-news-speaker">{{ seminar.speaker }}</span>
-              <strong class="seminar-news-title">{{ seminar.title }}</strong>
-            </a>
-          </li>
-        {% else %}
-          <li>No seminars are archived.</li>
-        {% endfor %}
+      <ol class="seminar-news-list" data-gap-seminar-preview aria-live="polite">
+        <li class="seminar-feed-status">Loading seminar dates…</li>
       </ol>
 
-      <a class="text-link all-seminars-link" href="{{ '/seminars/' | relative_url }}">All seminar dates <span aria-hidden="true">→</span></a>
+      <a class="text-link all-seminars-link" href="https://gapindnns.github.io/_pages/seminar.html" target="_blank" rel="noopener noreferrer">All seminar dates <span aria-hidden="true">↗</span></a>
     </section>
   </div>
 </section>

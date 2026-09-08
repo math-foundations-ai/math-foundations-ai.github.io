@@ -377,12 +377,14 @@ img { display: block; max-width: 100%; }
 /* Edition indexes */
 .series-section,
 .seminar-upcoming,
+.seminar-source,
 .seminar-archive {
   padding-block: clamp(2.75rem, 4vw, 4rem);
 }
 
 .series-section + .series-section,
-.seminar-upcoming + .seminar-archive {
+.seminar-upcoming + .seminar-archive,
+.seminar-source + .seminar-archive {
   border-top: 1px solid var(--rule);
 }
 
@@ -695,6 +697,23 @@ img { display: block; max-width: 100%; }
 .workshop-painting figcaption cite { color: var(--ink); font-family: var(--display); font-style: italic; }
 
 /* Seminar archive */
+.seminar-source-card {
+  display: grid;
+  grid-template-columns: minmax(15rem, .75fr) minmax(20rem, 1.25fr);
+  gap: clamp(2rem, 5vw, 6rem);
+  align-items: start;
+  padding: clamp(1.75rem, 3vw, 3rem);
+  background: var(--accent);
+  color: #fff;
+}
+.seminar-source-card .event-meta { color: rgba(255, 255, 255, .78); }
+.seminar-source-card h2 { max-width: 12ch; margin: 0; font-family: var(--display); font-size: clamp(1.9rem, 3vw, 3rem); font-weight: 550; line-height: 1; letter-spacing: -.035em; }
+.seminar-source-copy p { max-width: 39rem; margin: 0; line-height: 1.55; }
+.seminar-source-actions { display: flex; flex-wrap: wrap; gap: 1rem 1.5rem; align-items: center; margin-top: 1.5rem; }
+.seminar-source-card .button-link { padding: .75rem 1rem; border: 1px solid #fff; color: #fff; }
+.seminar-source-card .text-link { border-color: #fff; color: #fff; }
+.seminar-feed-status { margin: 0; color: var(--ink-soft); font-size: .88rem; }
+.seminar-feed-status a { text-underline-offset: .2em; }
 .archive-title-row { display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
 .archive-title-row .series-label { margin-bottom: 0; }
 .year-controls { display: flex; align-items: center; gap: .6rem; }
@@ -799,6 +818,7 @@ img { display: block; max-width: 100%; }
   .team-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .team-card--leader { max-width: 50%; }
   .archive-layout { grid-template-columns: 1fr; }
+  .seminar-source-card { grid-template-columns: 1fr; gap: 1.5rem; }
   .year-index { position: static; flex-direction: row; gap: 1.5rem; }
   .year-index .eyebrow { margin-right: auto; }
   .year-index a { padding: 0; border: 0; }
