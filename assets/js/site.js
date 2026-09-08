@@ -258,7 +258,7 @@ function renderGapPreview(talks) {
   if (!preview) return;
 
   preview.replaceChildren();
-  talks.slice(0, 4).forEach((talk) => {
+  talks.slice(0, 2).forEach((talk) => {
     const item = document.createElement('li');
     item.className = 'seminar-news-item';
     const link = externalLink('', talk.sourceUrl);

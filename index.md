@@ -43,7 +43,7 @@ description: Mathematical Foundations of AI is a research theme within the Chalm
   </div>
   <div class="recent-activity-grid">
     <div class="recent-features" aria-label="Recent workshops and retreats">
-      {% for activity in recent_features limit: 2 %}
+      {% for activity in recent_features limit: 1 %}
         <article class="feature-event">
           <p class="event-meta">
             <span>{{ activity.activity_type }}</span>

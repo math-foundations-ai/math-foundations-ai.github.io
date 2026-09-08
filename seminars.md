@@ -12,7 +12,7 @@ activity_leads:
   <div class="page-lead-grid">
     <h1>Seminars</h1>
     <div class="page-intro">
-      <p>Seminars organised by the theme take place within the GAPinDNNs seminar series at Mathematical Sciences, Chalmers and the University of Gothenburg.</p>
+      <p>Seminars organised by the theme take place within the GAPinDNNs seminar series.</p>
     </div>
   </div>
   {% include activity-organisation.html %}
@@ -25,7 +25,7 @@ activity_leads:
       <h2 id="gapindnns-heading">GAPinDNNs seminar</h2>
     </div>
     <div class="seminar-source-copy">
-      <p>The GAPinDNNs website is the authoritative source for dates, schedule changes and abstracts. Its calendar can be subscribed to for automatic updates.</p>
+      <p>Dates, schedule changes and abstracts from the GAPinDNNs website.</p>
       <div class="seminar-source-actions">
         <a class="button-link" href="https://gapindnns.github.io/_pages/seminar.html" target="_blank" rel="noopener noreferrer">Current schedule <span aria-hidden="true">↗</span></a>
         <a class="text-link" href="https://gapindnns.github.io/downloads/calendar.ics" target="_blank" rel="noopener noreferrer">Subscribe to calendar <span aria-hidden="true">↗</span></a>
