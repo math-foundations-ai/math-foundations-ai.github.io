@@ -73,7 +73,7 @@ description: Mathematical Foundations of AI is a research theme within the Chalm
         <li class="seminar-feed-status">Loading seminar dates…</li>
       </ol>
 
-      <a class="text-link all-seminars-link" href="https://gapindnns.github.io/_pages/seminar.html" target="_blank" rel="noopener noreferrer">All seminar dates <span aria-hidden="true">↗</span></a>
+      <a class="text-link all-seminars-link" href="{{ '/seminars/' | relative_url }}">All seminar dates <span aria-hidden="true">→</span></a>
     </section>
   </div>
 </section>

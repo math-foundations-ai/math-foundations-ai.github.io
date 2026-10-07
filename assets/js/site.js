@@ -282,7 +282,8 @@ function renderGapPreviewList(preview, talks) {
   talks.slice(0, 2).forEach((talk) => {
     const item = document.createElement('li');
     item.className = 'seminar-news-item';
-    const link = externalLink('', talk.sourceUrl);
+    const link = document.createElement('a');
+    link.href = `/seminars/#${encodeURIComponent(talk.id)}`;
     link.setAttribute('aria-label', `${talk.speaker}: ${talk.title}, ${talk.date.long}`);
 
     const time = document.createElement('time');
