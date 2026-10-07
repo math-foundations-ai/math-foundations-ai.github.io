@@ -253,11 +253,32 @@ function externalLink(label, href, className = '') {
   return link;
 }
 
-function renderGapPreview(talks) {
-  const preview = document.querySelector('[data-gap-seminar-preview]');
-  if (!preview) return;
+function partitionGapSeminars(talks, now = new Date()) {
+  // The source supplies dates without an end time. Keep today's seminars
+  // upcoming until the calendar day ends in the seminar's Stockholm timezone.
+  const today = new Intl.DateTimeFormat('sv-SE', {
+    timeZone: 'Europe/Stockholm', year: 'numeric', month: '2-digit', day: '2-digit',
+  }).format(now);
+  const datedTalks = talks.filter((talk) => talk.date.iso);
 
+  return {
+    upcoming: datedTalks.filter((talk) => talk.date.iso >= today)
+      .sort((a, b) => a.date.iso.localeCompare(b.date.iso)),
+    past: datedTalks.filter((talk) => talk.date.iso < today)
+      .sort((a, b) => b.date.iso.localeCompare(a.date.iso)),
+  };
+}
+
+function renderGapPreviewList(preview, talks) {
   preview.replaceChildren();
+  if (!talks.length) {
+    const item = document.createElement('li');
+    item.className = 'seminar-feed-status';
+    item.textContent = 'No recent seminars are listed.';
+    preview.append(item);
+    return;
+  }
+
   talks.slice(0, 2).forEach((talk) => {
     const item = document.createElement('li');
     item.className = 'seminar-news-item';
@@ -278,6 +299,18 @@ function renderGapPreview(talks) {
     item.append(link);
     preview.append(item);
   });
+}
+
+function renderGapPreview(talks) {
+  const { upcoming, past } = partitionGapSeminars(talks);
+  document.querySelectorAll('[data-gap-seminar-preview]').forEach((preview) => {
+    renderGapPreviewList(preview, preview.dataset.gapSeminarPreview === 'upcoming' ? upcoming : past);
+  });
+
+  const upcomingSection = document.querySelector('[data-gap-upcoming-seminars]');
+  const upcomingEmpty = document.querySelector('[data-gap-upcoming-empty]');
+  if (upcomingSection) upcomingSection.hidden = !upcoming.length;
+  if (upcomingEmpty) upcomingEmpty.hidden = Boolean(upcoming.length);
 }
 
 function createSeminarItem(talk) {
@@ -414,13 +447,12 @@ function renderGapFeed(talks) {
 }
 
 function showGapFeedError() {
-  const preview = document.querySelector('[data-gap-seminar-preview]');
-  if (preview) {
+  document.querySelectorAll('[data-gap-seminar-preview]').forEach((preview) => {
     const item = document.createElement('li');
     item.className = 'seminar-feed-status';
     item.append(externalLink('View seminar dates ↗', gapSeminarUrl));
     preview.replaceChildren(item);
-  }
+  });
 
   const feed = document.querySelector('[data-gap-seminar-feed]');
   if (feed) {

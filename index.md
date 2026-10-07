@@ -31,7 +31,14 @@ description: Mathematical Foundations of AI is a research theme within the Chalm
     <h2 id="programme-heading">Upcoming activities</h2>
   </div>
 
-  <div class="programme-empty">
+  <section class="upcoming-seminars" aria-labelledby="upcoming-seminars-heading" data-gap-upcoming-seminars>
+    <h3 class="event-meta" id="upcoming-seminars-heading">Seminar</h3>
+    <ol class="seminar-news-list" data-gap-seminar-preview="upcoming" aria-live="polite">
+      <li class="seminar-feed-status">Loading seminar dates…</li>
+    </ol>
+  </section>
+
+  <div class="programme-empty" data-gap-upcoming-empty hidden>
     <p class="programme-note">No upcoming activities are listed.</p>
     <a class="button-link" href="{{ '/seminars/' | relative_url }}">Seminar archive <span aria-hidden="true">→</span></a>
   </div>
@@ -62,7 +69,7 @@ description: Mathematical Foundations of AI is a research theme within the Chalm
         <h3 class="event-meta" id="recent-seminars-heading">Seminar</h3>
       </header>
 
-      <ol class="seminar-news-list" data-gap-seminar-preview aria-live="polite">
+      <ol class="seminar-news-list" data-gap-seminar-preview="past" aria-live="polite">
         <li class="seminar-feed-status">Loading seminar dates…</li>
       </ol>
 

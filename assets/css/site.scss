@@ -237,6 +237,13 @@ img { display: block; max-width: 100%; }
 
 .programme-note { margin: 0; font-family: var(--display); font-size: 1.3rem; }
 
+.programme [hidden] { display: none; }
+.upcoming-seminars .event-meta { margin: 0; color: inherit; }
+.upcoming-seminars .seminar-news-list { margin-bottom: 0; }
+.upcoming-seminars .seminar-news-item time { color: inherit; }
+.upcoming-seminars .seminar-news-item + .seminar-news-item { border-color: rgba(255, 255, 255, .4); }
+.upcoming-seminars .seminar-news-item a:hover .seminar-news-title { color: inherit; text-decoration: underline; }
+
 .programme .button-link {
   padding: .85rem 1.1rem;
   border: 1px solid #fff;
