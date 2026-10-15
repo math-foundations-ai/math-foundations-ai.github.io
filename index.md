@@ -22,7 +22,7 @@ description: Mathematical Foundations of AI is a research theme within the Chalm
   <h2 id="objective-heading">Objective</h2>
   <div class="prose">
     <p>AI applications are advancing faster than their theoretical foundations. The theme develops mathematical accounts of learning dynamics and aims to establish theoretical guarantees for verifiable, trustworthy AI systems.</p>
-    <p>Researchers at Chalmers and the University of Gothenburg work across computer science, electrical engineering, physics and mathematics. Methods include statistical physics and representation theory. The program consists of regular seminars, community retreats and an international workshop.</p>
+    <p>Researchers at Chalmers and the University of Gothenburg work across computer science, electrical engineering, physics and mathematics. Methods include statistical physics and representation theory. The program consists of regular seminars, monthly mingling sessions, community retreats and an international workshop.</p>
   </div>
 </section>
 
@@ -36,6 +36,22 @@ description: Mathematical Foundations of AI is a research theme within the Chalm
     <ol class="seminar-news-list" data-gap-seminar-preview="upcoming" aria-live="polite">
       <li class="seminar-feed-status">Loading seminar dates…</li>
     </ol>
+  </section>
+
+  <section class="upcoming-mingling" aria-labelledby="upcoming-mingling-heading" data-mingling-preview hidden>
+    <h3 class="event-meta" id="upcoming-mingling-heading">Mingling</h3>
+    <ol class="seminar-news-list">
+      {% for session_date in site.data.mingling.dates %}
+        <li class="seminar-news-item" data-mingling-date="{{ session_date }}" hidden>
+          <a href="{{ '/mingling/' | relative_url }}#session-{{ session_date }}">
+            <time datetime="{{ session_date }}">{{ session_date | date: '%-d %B %Y' }}</time>
+            <span class="seminar-news-speaker">{{ site.data.mingling.time }} · CHAIR rooms, Origo</span>
+            <strong class="seminar-news-title">Tuesday Mingling</strong>
+          </a>
+        </li>
+      {% endfor %}
+    </ol>
+    <a class="text-link" href="{{ '/mingling/' | relative_url }}">All dates and signup <span aria-hidden="true">→</span></a>
   </section>
 
   <div class="programme-empty" data-gap-upcoming-empty hidden>

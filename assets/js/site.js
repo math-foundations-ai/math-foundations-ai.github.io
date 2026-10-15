@@ -253,12 +253,27 @@ function externalLink(label, href, className = '') {
   return link;
 }
 
+function stockholmDate(now = new Date()) {
+  return new Intl.DateTimeFormat('sv-SE', {
+    timeZone: 'Europe/Stockholm', year: 'numeric', month: '2-digit', day: '2-digit',
+  }).format(now);
+}
+
+function renderMinglingPreview(now = new Date()) {
+  const preview = document.querySelector('[data-mingling-preview]');
+  if (!preview) return;
+
+  const today = stockholmDate(now);
+  const sessions = [...preview.querySelectorAll('[data-mingling-date]')];
+  const next = sessions.find((session) => session.dataset.minglingDate >= today);
+  sessions.forEach((session) => { session.hidden = session !== next; });
+  preview.hidden = !next;
+}
+
 function partitionGapSeminars(talks, now = new Date()) {
   // The source supplies dates without an end time. Keep today's seminars
   // upcoming until the calendar day ends in the seminar's Stockholm timezone.
-  const today = new Intl.DateTimeFormat('sv-SE', {
-    timeZone: 'Europe/Stockholm', year: 'numeric', month: '2-digit', day: '2-digit',
-  }).format(now);
+  const today = stockholmDate(now);
   const datedTalks = talks.filter((talk) => talk.date.iso);
 
   return {
@@ -310,8 +325,9 @@ function renderGapPreview(talks) {
 
   const upcomingSection = document.querySelector('[data-gap-upcoming-seminars]');
   const upcomingEmpty = document.querySelector('[data-gap-upcoming-empty]');
+  const upcomingMingling = document.querySelector('[data-mingling-preview]');
   if (upcomingSection) upcomingSection.hidden = !upcoming.length;
-  if (upcomingEmpty) upcomingEmpty.hidden = Boolean(upcoming.length);
+  if (upcomingEmpty) upcomingEmpty.hidden = Boolean(upcoming.length) || Boolean(upcomingMingling && !upcomingMingling.hidden);
 }
 
 function createSeminarItem(talk) {
@@ -480,4 +496,5 @@ async function loadGapSeminars() {
   }
 }
 
+renderMinglingPreview();
 loadGapSeminars();

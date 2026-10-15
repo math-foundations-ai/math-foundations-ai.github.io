@@ -238,11 +238,20 @@ img { display: block; max-width: 100%; }
 .programme-note { margin: 0; font-family: var(--display); font-size: 1.3rem; }
 
 .programme [hidden] { display: none; }
-.upcoming-seminars .event-meta { margin: 0; color: inherit; }
-.upcoming-seminars .seminar-news-list { margin-bottom: 0; }
-.upcoming-seminars .seminar-news-item time { color: inherit; }
-.upcoming-seminars .seminar-news-item + .seminar-news-item { border-color: rgba(255, 255, 255, .4); }
-.upcoming-seminars .seminar-news-item a:hover .seminar-news-title { color: inherit; text-decoration: underline; }
+.programme .event-meta { margin: 0; color: inherit; }
+.programme .seminar-news-list { margin-bottom: 0; }
+.programme .seminar-news-item time { color: inherit; }
+.programme .seminar-news-item + .seminar-news-item { border-color: rgba(255, 255, 255, .4); }
+.programme .seminar-news-item a:hover .seminar-news-title { color: inherit; text-decoration: underline; }
+.upcoming-seminars:not([hidden]) + .upcoming-mingling { margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(255, 255, 255, .4); }
+.upcoming-mingling > .text-link { display: inline-block; margin-top: .75rem; border-color: currentColor; color: inherit; }
+
+.mingling-schedule-note { max-width: var(--reading); color: var(--ink-soft); }
+.mingling-dates { margin: 1.5rem 0 0; padding: 0; list-style: none; border-top: 1px solid var(--rule); }
+.mingling-dates li { display: flex; justify-content: space-between; flex-wrap: wrap; gap: .5rem 1.5rem; padding: 1.25rem .5rem; border-bottom: 1px solid var(--rule); scroll-margin-top: 7rem; }
+.mingling-dates li:target { background: var(--paper-deep); }
+.mingling-dates time { font-family: var(--display); font-size: 1.1rem; font-weight: 600; }
+.mingling-dates span { color: var(--ink-soft); }
 
 .programme .button-link {
   padding: .85rem 1.1rem;

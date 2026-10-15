@@ -7,6 +7,9 @@
 - label: Seminars
   url: /seminars/
   key: seminars
+- label: Mingling
+  url: /mingling/
+  key: mingling
 - label: Retreats
   url: /retreats/
   key: retreats
