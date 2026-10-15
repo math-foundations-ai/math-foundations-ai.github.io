@@ -2,7 +2,7 @@
 layout: default
 title: Team
 nav_key: team
-description: Leadership of the Mathematical Foundations of AI CHAIR theme.
+description: People and roles in the Mathematical Foundations of AI CHAIR theme.
 theme_leader:
   name: Stefano Sarao Mannelli
   affiliation: CSE, Chalmers/GU
@@ -46,13 +46,25 @@ leadership_team:
     position: Head of Division, Algebra and Geometry
     profile_url: https://gapindnns.github.io/members/Daniel_Persson
     image: /assets/images/team/daniel-persson.jpg
+other_roles:
+  - name: Philipp Misof
+    role: Mingler leader
+    affiliation: Mathematical Sciences, Chalmers/GU
+    position: Doctoral Student, Algebra and Geometry
+    profile_url: https://www.chalmers.se/en/persons/misof/
+    image: /assets/images/team/philipp-misof.jpg
+  - name: Frederik Thomsen
+    role: Mingler leader
+    affiliation: Department of Computer Science and Engineering, Chalmers
+    profile_url: https://www.researchgate.net/profile/Frederik-Thomsen
+    image: /assets/images/team/frederik-thomsen.webp
 ---
 
 <header class="page-lead shell">
   <div class="page-lead-grid">
     <h1>Team</h1>
     <div class="page-intro">
-      <p>Leadership of the Mathematical Foundations of AI theme within CHAIR.</p>
+      <p>People and roles in the Mathematical Foundations of AI theme within CHAIR.</p>
     </div>
   </div>
 </header>
@@ -88,6 +100,27 @@ leadership_team:
           <p class="team-card-affiliation">{{ person.affiliation }}</p>
           <p class="team-card-position">{{ person.position }}</p>
           <a class="text-link" href="{{ person.profile_url }}" target="_blank" rel="noopener noreferrer">{{ person.link_label | default: 'Profile' }} <span aria-hidden="true">↗</span><span class="visually-hidden"> for {{ person.name }}</span></a>
+        </div>
+      </article>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="team-section shell" aria-labelledby="other-roles-heading">
+  <div class="series-label">
+    <h2 id="other-roles-heading">Other roles</h2>
+  </div>
+
+  <div class="team-grid">
+    {% for person in page.other_roles %}
+      <article class="team-card" id="{{ person.name | slugify }}">
+        <img class="team-card-image" src="{{ person.image | relative_url }}" alt="" width="128" height="128" loading="lazy" decoding="async" />
+        <div class="team-card-copy">
+          <h3>{{ person.name }}</h3>
+          <p class="team-card-role">{{ person.role }}</p>
+          <p class="team-card-affiliation">{{ person.affiliation }}</p>
+          {% if person.position %}<p class="team-card-position">{{ person.position }}</p>{% endif %}
+          <a class="text-link" href="{{ person.profile_url }}" target="_blank" rel="noopener noreferrer">Profile <span aria-hidden="true">↗</span><span class="visually-hidden"> for {{ person.name }}</span></a>
         </div>
       </article>
     {% endfor %}
