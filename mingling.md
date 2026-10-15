@@ -15,7 +15,7 @@ description: Monthly research discussions across groups and departments working 
   <div class="activity-organisation" aria-label="Mingling organisation">
     <dl>
       <div>
-        <dt>Co-leads</dt>
+        <dt>Lead</dt>
         <dd>{{ site.data.mingling.organisers | join: ' · ' }}</dd>
       </div>
     </dl>
