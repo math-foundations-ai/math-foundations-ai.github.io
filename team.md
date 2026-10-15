@@ -55,7 +55,7 @@ other_roles:
     image: /assets/images/team/philipp-misof.jpg
   - name: Frederik Thomsen
     role: Mingler leader
-    affiliation: Department of Computer Science and Engineering, Chalmers
+    affiliation: CSE, Chalmers/GU
     profile_url: https://www.researchgate.net/profile/Frederik-Thomsen
     image: /assets/images/team/frederik-thomsen.webp
 ---
